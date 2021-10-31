@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Upload file{% endblock %}
+
+{% block body %}
+    <h1>Hello {{ app.user.userIdentifier }}</h1>
+
+    <form action="{{ path('do-upload') }}" method="post" enctype="multipart/form-data">
+
+        <input type="hidden" name="token" value="{{ csrf_token('upload') }}" />
+
+        <div>
+            <label for="myfile1">Premier fichier à fusionner:</label>
+            <input type="file" accept=".csv" name="myfile1" id="myfile1"  >
+        </div>
+        <div>
+            <label for="myfile2">Deuxième fichier à fusionner:</label>
+            <input type="file" accept=".csv" name="myfile2" id="myfile2" >
+        </div>
+
+        <button type="submit">Send</button>
+
+    </form>
+
+{% endblock %}
