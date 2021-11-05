@@ -18,13 +18,13 @@ Pour cette Partie 1 nous avons reduit le volume des deux fichiers csv est ont n�
 
 <h1>Premiere tache effectuer : Login Registre</h1>
 
-![](img/img1.png)
+![](img/img1.PNG)
 
 ![](img/img2.PNG)
 
 Nous avons créé un formulaire d’authentification qui nous a permis de nous inscrire et de nous connecter en tant qu’admin ou en tant que simple membre ou bien de nous déconnecter, l’Admin après s’etre connecter va pouvoir uploader deux fichiers Csv. Tandis que un utilisateur va pouvoir modifier son compte c’est-à-dire modifier son mot de passe ou son nom d’utilisateur ou supprimer son compte. <h1>Deuxième Tache </h1>
 
-![](img/img4.png)
+![](img/img4.PNG)
 
 Pour commencer cette partie nous avons decider de crée un formulaire pour upload pour cela dans le service Y aml nous avons défini un paramètre qui contient le nom du répertoire où les images doivent être téléchargées ; upload_dir: '../public/uploads'
 
@@ -62,7 +62,7 @@ ce service va permettre deplacer,les fichiers vers le répertoire de télécharg
 
 <h1>Troisieme tache </h1>
 
-![](img/img5.png)
+![](img/img5.PNG)
 
 Les deux fichier uploader on tetait fusionner et trier le trie a etait effectuer grace a cette ligne qui nous a permis de selectionner certaine categhorie : $tabName = ["Number", "GivenName", "Surname", "Birthday", "StreetAddress", 'NameSet', "EmailAddress", "TelephoneNumber", "Kilograms", "CCType", "CCNumber", "CVV2", "CCExpires", "Vehicle"];
 
