@@ -32,7 +32,7 @@ Nous avons créé un formulaire d’authentification qui nous a permis de nous i
 
 Pour commencer cette partie nous avons decider de crée un formulaire pour upload pour cela dans le service Y aml nous avons défini un paramètre qui contient le nom du répertoire où les images doivent être téléchargées ; 
 
-upload_dir: '../public/uploads' (ligne de code)
+upload_dir: '../public/uploads' 
 
 nous avons rajouter : 
 
@@ -48,23 +48,23 @@ Nous avons ensuite cree un controleur qui repond a la soumission du formulaire a
 
 php bin/console make:controller UploadController
 
-$token = $request→get("token"); (ligne de code)
+$token = $request→get("token"); 
 
 if (!$this→isCsrfTokenValid('upload', $token)) { $logger→info("CSRF failure"); (ligne de code)
 
     return new Response("Operation not allowed",  Response::HTTP_BAD_REQUEST,
         ['content-type' => 'text/plain']);
-} (ligne de code)
+} 
 Nous récupérons le jeton et le validons avec la méthode. Si la validation échoue, nous enregistrons l’incident et envoyons une réponse simple « Opération non autorisée » et un code de réponse. isCsrfTokenValid()Response::HTTP_BAD_REQUEST
-$file = $request→files→get('myfile'); (ligne de code)
+$file = $request→files→get('myfile'); 
 
 if (empty($file)) { return new Response("No file specified", Response::HTTP_UNPROCESSABLE_ENTITY, ['content-type' ⇒ 'text/plain']); } Nous vérifions si l’utilisateur a spécifié un fichier dans le formulaire avec la méthode. Si le champ de saisie est vide, nous renvoyons un texte brut « Aucun fichier spécifié » au client avec le code de réponse. empty()Response::HTTP_UNPROCESSABLE_ENTITY
 
-$filename = $file→getClientOriginalName(); (ligne de code)
+$filename = $file→getClientOriginalName(); 
 
 Nous obtenons le nom du fichier avec . GetClientOriginalName()
 
-$uploader→upload($uploadDir, $file, $filename); (ligne de code )
+$uploader→upload($uploadDir, $file, $filename); 
 
 Nous appelons la méthode de service de téléchargement, qui déplace le fichier vers le répertoire choisi. Nous passons à la méthode le nom du répertoire, les données du fichier et le nom du fichier. upload()
 
@@ -78,7 +78,7 @@ ce service va permettre deplacer,les fichiers vers le répertoire de télécharg
 
 Les deux fichier uploader on tetait fusionner et trier le trie a etait effectuer grace a cette ligne qui nous a permis de selectionner certaine categhorie :
 
-$tabName = ["Number", "GivenName", "Surname", "Birthday", "StreetAddress", 'NameSet', "EmailAddress", "TelephoneNumber", "Kilograms", "CCType", "CCNumber", "CVV2", "CCExpires", "Vehicle"]; (ligne de code)
+$tabName = ["Number", "GivenName", "Surname", "Birthday", "StreetAddress", 'NameSet', "EmailAddress", "TelephoneNumber", "Kilograms", "CCType", "CCNumber", "CVV2", "CCExpires", "Vehicle"]; 
 
 <h1>Quatrieme partie </h1>
 
@@ -92,6 +92,6 @@ ce code va nous permttre de telechager le nouveau fichier fusionner
 
 <h2>Problème rencontré</h2> Dans cette partie notre principal problème a été la fusion difficile de trouver des aides sur internet on n’a donc reçu l’aide de nos camarades de classe pour effectuer cette fusion
 
-<h1>Conclusion </h1>
+<h1>Conclusion</h1>
 
 Ce projet était intéressant il nous a permis de développer certain acquis et malgres que nous avons pas pue réussir jusqu’à la fin il nous a permit de nous familiariser avec le framework symfony
