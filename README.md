@@ -1,4 +1,6 @@
-<h1>Vetux Line</h1> Niveau : Deuxième année de BTS SIO SLAM
+<h1>Vetux Line</h1> 
+
+Niveau : Deuxième année de BTS SIO SLAM
 
 <h1>Projet</h1> Dans ce projet nous travaillons pour l’entreprise Vetux-Line qui est une entreprise de création de vêtementsVetux-Liune reçois tous les deux mois 2 fichiers client Csv .Ce projet a pour but de crée une application pour l’entreprise qui va nous permettre de fusionner deux fichiers CSV en un seul .Pour effectuer ceci notre entreprise nous transmet deux fichiers Csv qui se nomment: french-client.csv (avec 3000 clients) et un german-client.csv ( avec 2000 clients)
 
@@ -22,29 +24,39 @@ Pour cette Partie 1 nous avons reduit le volume des deux fichiers csv est ont n�
 
 ![](img/img2.PNG)
 
-Nous avons créé un formulaire d’authentification qui nous a permis de nous inscrire et de nous connecter en tant qu’admin ou en tant que simple membre ou bien de nous déconnecter, l’Admin après s’etre connecter va pouvoir uploader deux fichiers Csv. Tandis que un utilisateur va pouvoir modifier son compte c’est-à-dire modifier son mot de passe ou son nom d’utilisateur ou supprimer son compte. <h1>Deuxième Tache </h1>
+Nous avons créé un formulaire d’authentification qui nous a permis de nous inscrire et de nous connecter en tant qu’admin ou en tant que simple membre ou bien de nous déconnecter, l’Admin après s’etre connecter va pouvoir uploader deux fichiers Csv. Tandis que un utilisateur va pouvoir modifier son compte c’est-à-dire modifier son mot de passe ou son nom d’utilisateur ou supprimer son compte. 
+
+<h1>Deuxième Tache </h1>
 
 ![](img/img4.PNG)
 
-Pour commencer cette partie nous avons decider de crée un formulaire pour upload pour cela dans le service Y aml nous avons défini un paramètre qui contient le nom du répertoire où les images doivent être téléchargées ; upload_dir: '../public/uploads'
+Pour commencer cette partie nous avons decider de crée un formulaire pour upload pour cela dans le service Y aml nous avons défini un paramètre qui contient le nom du répertoire où les images doivent être téléchargées ; 
 
-nous avons rajouter : bind: $uploadDir: '%upload_dir%' dans le service.yaml aussi juste en dessous de autowire: true # Automatically injects dependencies in your services. autoconfigure: true # Automatically registers your services as commands, …​
+upload_dir: '../public/uploads' (ligne de code)
 
-Nous avons par la suite cree une controleur avec la commande : php bin/console make:controller HomeController
+nous avons rajouter : 
+
+bind: $uploadDir: '%upload_dir%' dans le service.yaml aussi juste en dessous de autowire: true # Automatically injects dependencies in your services. autoconfigure: true # Automatically registers your services as commands, …​
+
+Nous avons par la suite cree une controleur avec la commande :
+
+php bin/console make:controller HomeController 
 
 Ce formulaire va permettre d’envoyer une vue contenant le formulaire Web à l’utilisateur.
 
-Nous avons ensuite cree un controleur qui repond a la soumission du formulaire avec la commande : php bin/console make:controller UploadController
+Nous avons ensuite cree un controleur qui repond a la soumission du formulaire avec la commande : 
 
-$token = $request→get("token");
+php bin/console make:controller UploadController
 
-if (!$this→isCsrfTokenValid('upload', $token)) { $logger→info("CSRF failure");
+$token = $request→get("token"); (ligne de code)
+
+if (!$this→isCsrfTokenValid('upload', $token)) { $logger→info("CSRF failure"); (ligne de code)
 
     return new Response("Operation not allowed",  Response::HTTP_BAD_REQUEST,
         ['content-type' => 'text/plain']);
-}
+} (ligne de code)
 Nous récupérons le jeton et le validons avec la méthode. Si la validation échoue, nous enregistrons l’incident et envoyons une réponse simple « Opération non autorisée » et un code de réponse. isCsrfTokenValid()Response::HTTP_BAD_REQUEST
-$file = $request→files→get('myfile');
+$file = $request→files→get('myfile'); (ligne de code)
 
 if (empty($file)) { return new Response("No file specified", Response::HTTP_UNPROCESSABLE_ENTITY, ['content-type' ⇒ 'text/plain']); } Nous vérifions si l’utilisateur a spécifié un fichier dans le formulaire avec la méthode. Si le champ de saisie est vide, nous renvoyons un texte brut « Aucun fichier spécifié » au client avec le code de réponse. empty()Response::HTTP_UNPROCESSABLE_ENTITY
 
@@ -64,13 +76,15 @@ ce service va permettre deplacer,les fichiers vers le répertoire de télécharg
 
 ![](img/img5.PNG)
 
-Les deux fichier uploader on tetait fusionner et trier le trie a etait effectuer grace a cette ligne qui nous a permis de selectionner certaine categhorie : $tabName = ["Number", "GivenName", "Surname", "Birthday", "StreetAddress", 'NameSet', "EmailAddress", "TelephoneNumber", "Kilograms", "CCType", "CCNumber", "CVV2", "CCExpires", "Vehicle"];
+Les deux fichier uploader on tetait fusionner et trier le trie a etait effectuer grace a cette ligne qui nous a permis de selectionner certaine categhorie :
+
+$tabName = ["Number", "GivenName", "Surname", "Birthday", "StreetAddress", 'NameSet', "EmailAddress", "TelephoneNumber", "Kilograms", "CCType", "CCNumber", "CVV2", "CCExpires", "Vehicle"]; (ligne de code)
 
 <h1>Quatrieme partie </h1>
 
 $response = new BinaryFileResponse('../public/csv/output.csv');
 
-cette ligne qui va permettre de dire ou le fichier va etre telecharger
+cette ligne qui va permettre de dire ou le fichier va etre telecharger:
 
 $response = new BinaryFileResponse('../public/csv/output.csv'); $response→headers→set('Content-Type', 'text/csv'); $response→setContentDisposition( ResponseHeaderBag::DISPOSITION_ATTACHMENT, 'fusion.csv' ); return $response;
 
