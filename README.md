@@ -66,7 +66,7 @@ ce service va permettre deplacer,les fichiers vers le répertoire de télécharg
 
 Les deux fichier uploader on tetait fusionner et trier le trie a etait effectuer grace a cette ligne qui nous a permis de selectionner certaine categhorie : $tabName = ["Number", "GivenName", "Surname", "Birthday", "StreetAddress", 'NameSet', "EmailAddress", "TelephoneNumber", "Kilograms", "CCType", "CCNumber", "CVV2", "CCExpires", "Vehicle"];
 
-<h1>Quatrieme partie </h1>
+<h1>Quatrieme tache </h1>
 
 $response = new BinaryFileResponse('../public/csv/output.csv');
 
@@ -77,6 +77,25 @@ $response = new BinaryFileResponse('../public/csv/output.csv'); $response→head
 ce code va nous permttre de telechager le nouveau fichier fusionner
 
 <h2>Problème rencontré</h2> Dans cette partie notre principal problème a été la fusion difficile de trouver des aides sur internet on n’a donc reçu l’aide de nos camarades de classe pour effectuer cette fusion
+
+<h1>Deuxieme Partie:ETL</h1>
+Nous devions mettre les données des clients, les véhicules en particulier, dans une base de données.
+
+Pour effectuer cette partie nous avons utiliser la methode du ManyToOne et OneToMany
+
+![](img/img11.PNG)
+
+![](img/img12.PNG)
+
+On récupère le fichier fusionné directement dans le serveur, puis on récupère les parties qui sont intéressante (marque , nom des clients,  voiture ect...)  pour le rentre dans la base de données.
+
+![](img/img8.PNG)
+
+![](img/img9.PNG)
+
+![](img/img10.PNG)
+
+<h1>Problème rencontré </h1> Pour cette partie nous n'avons pas pu faire une représentation graphique de données statistiques  ainsi que le Evil User Stories.
 
 <h1>Conclusion </h1>
 
